@@ -27,7 +27,7 @@ jobs:
       - image: google/cloud-sdk
     environment:
       - PROJECT_NAME: "hacknightvol4"
-      - GOOGLE_PROJECT_ID: "united-tempest-228204"
+      - GOOGLE_PROJECT_ID: "planar-airship-233109"
       - GOOGLE_COMPUTE_ZONE: "asia-east1-a"
       - GOOGLE_CLUSTER_NAME: "hacknightvol4-cluster"
     steps:
@@ -36,7 +36,7 @@ jobs:
           name: Setup Google Cloud SDK 
           command: |
             apt-get install -qq -y gettext
-            echo $GOOGLE_AUTH > ${HOME}/gcloud-service-key.json
+            echo  hacknightvol4@planar-airship-233109.iam.gserviceaccount.com > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
             gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
             gcloud --quiet container clusters create ${GOOGLE_CLUSTER_NAME} --zone ${GOOGLE_COMPUTE_ZONE} 
